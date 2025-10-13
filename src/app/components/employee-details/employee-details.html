@@ -1,0 +1,17 @@
+<h2>employee-details</h2>
+<table border="1" cellpadding="8">
+<tr>
+  <th>Name</th>
+  <th>Age</th>
+  <th>Gender</th>
+  <th>Company</th>
+  <th>Date Of Joining</th>
+</tr>
+<tr *ngFor="let emp of employees">
+    <td>{{emp.name}}</td>
+    <td>{{emp.age}}</td>
+    <td>{{emp.gender}}</td>
+    <td>{{emp.currentCompany}}</td>
+    <td>{{emp.dateOfJoining}}</td>
+</tr>
+</table>
