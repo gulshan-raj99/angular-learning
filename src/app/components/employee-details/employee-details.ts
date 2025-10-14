@@ -64,4 +64,12 @@ export class EmployeeDetails {
   closeModel(){
     this.selectedEmployee = null;
   }
+
+  deleteEmployee(emp: Employee){
+    const confirmed = confirm(`Are you sure you want to delete ${emp.name}?`);
+    if(confirmed){
+      this.employees = this.employees.filter((e) => e.name !== emp.name);
+      this.employeeService.updateEmployee(this.employees);
+    }
+  }
 }

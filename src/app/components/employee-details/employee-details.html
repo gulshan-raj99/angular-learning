@@ -14,7 +14,8 @@
     <td>{{emp.gender}}</td>
     <td>{{emp.currentCompany}}</td>
   <td>{{emp.dateOfJoining | date:'MMM dd yyyy'}}</td>
-  <td><button (click)="$event.stopPropagation(); openModel(emp)">Edit</button></td>
+  <td><button (click)="$event.stopPropagation(); openModel(emp)">Edit</button>
+  <button (click)="$event.stopPropagation(); deleteEmployee(emp)">Delete</button></td>
 </tr>
 </table>
 
