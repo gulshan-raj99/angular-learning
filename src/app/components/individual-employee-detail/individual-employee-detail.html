@@ -1,0 +1,21 @@
+<button (click)="goBack()">Back to Employee List</button>
+<h2>Individual Employee Details</h2>
+<table border="1" cellpadding="8" *ngIf="employee">
+	<tr>
+		<th>Name</th>
+		<th>Age</th>
+		<th>Gender</th>
+		<th>Company</th>
+		<th>Date Of Joining</th>
+	</tr>
+	<tr>
+		<td>{{employee.name}}</td>
+		<td>{{employee.age}}</td>
+		<td>{{employee.gender}}</td>
+		<td>{{employee.currentCompany}}</td>
+		<td>{{employee.dateOfJoining | date:'MMM dd yyyy'}}</td>
+	</tr>
+</table>
+<div *ngIf="!employee">
+	<p>No employee found.</p>
+</div>

@@ -7,11 +7,11 @@
   <th>Company</th>
   <th>Date Of Joining</th>
 </tr>
-<tr *ngFor="let emp of employees">
+<tr *ngFor="let emp of employees" (click)="viewEmployee(emp)" style="cursor: pointer;">
     <td>{{emp.name}}</td>
     <td>{{emp.age}}</td>
     <td>{{emp.gender}}</td>
     <td>{{emp.currentCompany}}</td>
-    <td>{{emp.dateOfJoining}}</td>
+  <td>{{emp.dateOfJoining | date:'MMM dd yyyy'}}</td>
 </tr>
 </table>
