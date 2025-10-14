@@ -6,6 +6,7 @@
   <th>Gender</th>
   <th>Company</th>
   <th>Date Of Joining</th>
+  <th>Action</th>
 </tr>
 <tr *ngFor="let emp of employees" (click)="viewEmployee(emp)" style="cursor: pointer;">
     <td>{{emp.name}}</td>
@@ -13,5 +14,37 @@
     <td>{{emp.gender}}</td>
     <td>{{emp.currentCompany}}</td>
   <td>{{emp.dateOfJoining | date:'MMM dd yyyy'}}</td>
+  <td><button (click)="$event.stopPropagation(); openModel(emp)">Edit</button></td>
 </tr>
 </table>
+
+<!-- Modal -->
+<div class="modal" *ngIf="selectedEmployee && employeeForm">
+  <div class="modal-content">
+    <h3>Edit Employee</h3>
+    <form [formGroup]="employeeForm">
+      <label>Name:</label>
+      <input type="text" formControlName="name" /><br />
+
+      <label>Age:</label>
+      <input type="number" formControlName="age" /><br />
+
+      <label>Gender:</label>
+      <select formControlName="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select><br />
+
+      <label>Current Company:</label>
+      <input type="text" formControlName="currentCompany"><br />
+
+      <label>Date of Joining:</label>
+      <input type="date" formControlName="dateOfJoining"><br />
+
+      <div class="actions">
+        <button type="button" (click)="saveChanges()">Save</button>
+        <button type="button" (click)="closeModel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

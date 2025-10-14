@@ -33,4 +33,8 @@ export class EmployeeService {
   getEmployees(): Employee[] {
     return this.employees;
   }
+
+  updateEmployee(updateEmployeeList: Employee[]){
+    this.employees = updateEmployeeList;
+  }
 }

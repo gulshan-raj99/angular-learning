@@ -4,4 +4,5 @@ export interface Employee{
     gender: string;
     currentCompany: string;
     dateOfJoining: Date;
+    action?: string
 }
