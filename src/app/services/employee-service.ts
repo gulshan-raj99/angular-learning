@@ -37,4 +37,8 @@ export class EmployeeService {
   updateEmployee(updateEmployeeList: Employee[]){
     this.employees = updateEmployeeList;
   }
+
+  addEmployee(newEmployee: Employee){
+    this.employees.push(newEmployee);
+  }
 }
