@@ -1,0 +1,16 @@
+<h2>👨‍💼 Parent Employee Component</h2>
+<p>Click on an employee to view and edit details (via child component):</p>
+
+<ul>
+  <li *ngFor="let emp of employees" (click)="selectEmployee(emp)" style="cursor: pointer;">
+    {{ emp.name }} — {{ emp.company }}
+  </li>
+</ul>
+
+<hr />
+
+<!-- Sending data to child -->
+<app-child-employee
+  [employee]="selectedEmployee"
+  (employeeUpdated)="onUpdateEmployee($event)">
+</app-child-employee>

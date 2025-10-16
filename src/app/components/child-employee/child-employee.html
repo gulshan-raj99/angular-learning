@@ -1,0 +1,25 @@
+<div *ngIf="employee; else noSelection">
+    <h3>child Component: Employee Details</h3>
+    <p>Edit details below and click "update" to send data to parent</p>
+
+    <label>Name:</label>
+    <input [(ngModel)]="employee.name" /><br />
+
+    <label>Age:</label>
+    <input type="number" [(ngModel)]="employee.age" /><br />
+
+    <label>Gender:</label>
+    <select [(ngModel)]="employee.gender">
+        <option>Male</option>
+        <option>Female</option>
+    </select><br />
+
+    <label>Company:</label>
+    <input [(ngModel)]="employee.company" /><br />
+
+    <button (click)="updateEmployee()">Update</button>
+</div>
+
+<ng-template #noSelection>
+    <p>select an employee from the list above to view details.</p>
+</ng-template>
