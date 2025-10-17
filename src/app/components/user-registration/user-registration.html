@@ -1,0 +1,38 @@
+<h2 class="mb-4">User Registration</h2>
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="row g-3 p-4 border rounded bg-light shadow-sm" style="max-width: 700px; margin: auto;">
+    <div class="col-md-6">
+        <label class="form-label">Name:</label>
+        <input type="text" class="form-control" formControlName="name" />
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Age:</label>
+        <input type="number" class="form-control" formControlName="age" />
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Company:</label>
+        <input type="text" class="form-control" formControlName="company" />
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Date Of Joining:</label>
+        <input type="date" class="form-control" formControlName="dateOfJoining" />
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Email:</label>
+        <input type="email" class="form-control" formControlName="email" />
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Confirm Email:</label>
+        <input type="email" class="form-control" formControlName="confirmEmail" />
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Password:</label>
+        <input type="password" class="form-control" formControlName="password" />
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Confirm Password:</label>
+        <input type="password" class="form-control" formControlName="confirmPassword" />
+    </div>
+    <div class="col-12 text-center mt-3">
+        <button type="submit" class="btn btn-primary px-5" [disabled]="registrationForm.invalid">Register</button>
+    </div>
+</form>
