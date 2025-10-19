@@ -1,5 +1,9 @@
 <h2>Product management via API</h2>
 
+<div class="search-bar">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search Products" (keyup.enter)="onSearch()" />
+    <button (click)="onSearch()">Search</button>
+</div>
 <div class="add-product">
     <h3>Add new product</h3>
     <input [(ngModel)]="newProduct.title" placeholder="Product Title" />
@@ -35,4 +39,9 @@
                         </td>
                 </tr>
     </table>
+</div>
+
+<div class="pagination">
+    <button (click)="previousPage()" [disabled]="skip ===0">Previous</button>
+    <button (click)="nextPage()" [disabled]="skip + limit >= total">Next</button>
 </div>

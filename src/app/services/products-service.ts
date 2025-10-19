@@ -20,9 +20,13 @@ export class ProductsService {
   private apiUrl = 'https://dummyjson.com/products';
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<any> {
-    return this.http.get(this.apiUrl);
+  getProducts(limit: number, skip: number, searchTerm: string = ''): Observable<any> {
+  let url = `${this.apiUrl}?limit=${limit}&skip=${skip}`;
+  if (searchTerm) {
+    url = `${this.apiUrl}/search?q=${searchTerm}&limit=${limit}&skip=${skip}`;
   }
+  return this.http.get(url);
+}
 
   getProductById(id: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/${id}`);

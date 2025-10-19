@@ -15,6 +15,11 @@ export class ProductApi {
   selectedProduct: Product | null = null;
   newProduct: Product = {title:'',description: '', price: 0};
 
+  limit = 10;
+  skip = 0;
+  total = 0;
+  searchTerm = '';
+
   constructor(private productService:ProductsService){}
 
   ngOnInit() {
@@ -23,9 +28,29 @@ export class ProductApi {
 
   // Get all products
   fetchProducts() {
-    this.productService.getProducts().subscribe((res: any) => {
+    this.productService.getProducts(this.limit,this.skip,this.searchTerm).subscribe((res: any) => {
       this.products = res.products;
+      this.total = res.total;
     });
+  }
+
+  onSearch() {
+    this.skip = 0;
+    this.fetchProducts();
+  }
+
+  nextPage() {
+    if(this.skip + this.limit < this.total) {
+      this.skip += this.limit;
+      this.fetchProducts();
+    }
+  }
+
+  previousPage() {
+    if(this.skip>=0) {
+      this.skip -= this.limit;
+      this.fetchProducts();
+    }
   }
 
   addProduct() {
