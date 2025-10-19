@@ -1,0 +1,32 @@
+.add-product {
+  margin-bottom: 20px;
+}
+
+.add-product input {
+  margin-right: 8px;
+  padding: 6px;
+}
+
+button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1565c0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #1976d2;
+  color: white;
+  padding: 12px 18px;
+}
